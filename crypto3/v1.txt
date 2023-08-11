@@ -1,0 +1,48 @@
+/*	private static final String INIT_VECTOR = "SECRET_BIGSECRET"; //может быть случайной величиной или строкой, предотвращает появление повторение шифрования данных, усложняет взлом
+	public static String encrypt ( String secretKey, String plainText ) {
+		try {
+			if (!isKeyLengthValid(secretKey)) {
+				throw new Exception ("Длина секретного ключа должна быть 128, 192 или 256 бит");
+			}
+			IvParameterSpec ivParameterSpec = new IvParameterSpec (INIT_VECTOR.getBytes( "UTF-8")); //charsetName:
+			SecretKeySpec secretKeySpec = new SecretKeySpec (secretKeySpec.getBytes("UTF-8"), "AES");//charsetName: S:
+
+			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+			cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
+			return new String(Hex.encodeHex(cipher.doFinal(plainText.getBytes(charsetName "UTF-8")), toLowerCase: false));
+		} catch (Throwable cause) {
+			System.out.println(cause.getMessage());
+		}
+		return null;
+		}
+		public static String decrypt(String secretKey, String cipherText) {
+			try {
+				if (!isKeyLengthValid(secretKey)) {
+					throw new Exception("Длина секретного ключа должна быть 128, 192 или 256 бит");
+				}
+
+				IvParameterSpec = new IvParameterSpec(INIT_VECTOR.getBytes(charsetName("UTF-8"));
+				SecretKeySpec secretKeySpec = new SecretKeySpec (secretKeySpec.getBytes(charsetName: "UTF-8"), S: "AES");
+				Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+				cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
+				return new String(cipher.doFinal(Hex.decode(cipherText.toCharArray())));
+			} catch (Throwable cause) {
+				cause.printStackTrace();
+			}
+			return null;
+		}
+		private static boolean isKeyLengthValid (String key) {
+			return key.length() == 16 || key.length() == 24 || key.length() == 32;
+		}
+		}
+	/*	public class test {
+			public static void main(String[] args) throws NoSuchAlgorithmException {
+	String secretKey = " ";
+	String plainText = "Hello, world";
+	String encryptedText;
+	System.out.println("Шифрованный текст: " + (encryptedText = AesCipher.encrypt(secretKey, plainText)));
+	System.out.println("Расшифрованный текст: " + AesCipher.decrypt(secretKey, encryptedText));
+	}
+	}
+	}
+*/
